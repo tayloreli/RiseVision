@@ -1,5 +1,5 @@
 riseApp.factory('displaysData', function(){	
-	console.log("before list display");
+	console.log("Before list display");
 	var displays = listDisplay();
 	return displays;
 });
