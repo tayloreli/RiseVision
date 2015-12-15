@@ -1,15 +1,15 @@
 /**
  * Created by rodrigopavezi on 11/14/14.
  */
-function listDisplay() {
+function listDisplay(companyId, count, cursor, search, sort, fields, callback) {
     console.log('listDisplay');
     // getting parameters values
-    var _companyId = "";//document.getElementById('listDisplay_companyId').value;
-    var _count = "";//document.getElementById('listDisplay_count').value;
-    var _cursor = "";//document.getElementById('listDisplay_cursor').value;
-    var _search = "";//document.getElementById('listDisplay_search').value;
-    var _sort = "";//document.getElementById('listDisplay_sort').value;
-    var _fields = "";//document.getElementById('listDisplay_fields').value;
+    var _companyId = companyId;//document.getElementById('listDisplay_companyId').value;
+    var _count = count;//document.getElementById('listDisplay_count').value;
+    var _cursor = cursor;//document.getElementById('listDisplay_cursor').value;
+    var _search = search;//document.getElementById('listDisplay_search').value;
+    var _sort = sort;//document.getElementById('listDisplay_sort').value;
+    var _fields = fields;//document.getElementById('listDisplay_fields').value;
 
     // create a javascript object which will be converted to Json
     var parameters = {};
@@ -37,8 +37,7 @@ function listDisplay() {
         var request = gapi.client.core.display.list(parameters);
 
         request.execute(function (jsonResp, rawResp) {
-            return jsonResp;
-            //handlesResponse(jsonResp, rawResp, 'listDisplayResult');
+            callback(jsonResp, rawResp, 'listDisplayResult');
         });
     }, ROOT);
 }
