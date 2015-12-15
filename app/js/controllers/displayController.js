@@ -1,6 +1,6 @@
 'use strict'
 
-riseApp.controller('displayController',
+riseApp.controller('displayController', ['$scope',
 	function displayController($scope){
 		$scope.displays = [];
 		$scope.message = "Hello World";
@@ -18,5 +18,5 @@ riseApp.controller('displayController',
 				//output(syntaxHighlight(jsonData), type); // see output.js
 			});
 		}
-	}
+	}]
 );
