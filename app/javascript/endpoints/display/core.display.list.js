@@ -4,12 +4,12 @@
 function listDisplay() {
     console.log('listDisplay');
     // getting parameters values
-    var _companyId = document.getElementById('listDisplay_companyId').value;
-    var _count = document.getElementById('listDisplay_count').value;
-    var _cursor = document.getElementById('listDisplay_cursor').value;
-    var _search = document.getElementById('listDisplay_search').value;
-    var _sort = document.getElementById('listDisplay_sort').value;
-    var _fields = document.getElementById('listDisplay_fields').value;
+    var _companyId = "";//document.getElementById('listDisplay_companyId').value;
+    var _count = "";//document.getElementById('listDisplay_count').value;
+    var _cursor = "";//document.getElementById('listDisplay_cursor').value;
+    var _search = "";//document.getElementById('listDisplay_search').value;
+    var _sort = "";//document.getElementById('listDisplay_sort').value;
+    var _fields = "";//document.getElementById('listDisplay_fields').value;
 
     // create a javascript object which will be converted to Json
     var parameters = {};
