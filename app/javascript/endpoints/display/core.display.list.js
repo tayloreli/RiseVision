@@ -37,7 +37,8 @@ function listDisplay() {
         var request = gapi.client.core.display.list(parameters);
 
         request.execute(function (jsonResp, rawResp) {
-            handlesResponse(jsonResp, rawResp, 'listDisplayResult');
+            return jsonResp;
+            //handlesResponse(jsonResp, rawResp, 'listDisplayResult');
         });
     }, ROOT);
 }
