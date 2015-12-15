@@ -14,7 +14,7 @@ riseApp.controller('displayController',
 				// There is the error case so result element would not exist on the json responce
 				var resultJson = (jsonResp.result) ? jsonResp.result : jsonResp;
 				var jsonData = JSON.stringify(resultJson, undefined, 2);
-				$scope.displays = jsonData.items;
+				$scope.displays = jsonData["items"];
 				//output(syntaxHighlight(jsonData), type); // see output.js
 			});
 		}
