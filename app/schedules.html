@@ -131,9 +131,13 @@
 				<div ng-repeat="schedule in schedules" id="schedule-{{schedule.id}}">						
 					<div class="row">
 						<div class="well span9">
-							<h4 class="well-title">{{schedule.id}}</h4>
-							<h6 style="margin-top:-10px;">{{schedule.companyName}}</h6>
-							<span>Name: {{schedule.name}}</span>
+							<h4 class="well-title">{{schedule.name}}</h4>
+							<ul>
+								<li ng-repeat="content in schedule.content" id="content-{{content.name}}">
+									<h5>{{content.name}}</h5>
+									<span>Hold time: {{content.duration}} seconds</span>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
