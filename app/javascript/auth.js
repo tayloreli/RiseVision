@@ -19,8 +19,8 @@
  */
 
 var DEV_DOMAIN = "localhost";
-var STAGE_DOMAIN = "risevision.azurewebsites.net";
-var PROD_DOMAIN = "risevision.azurewebsites.net";
+var STAGE_DOMAIN = "yescorise.herokuapp.com";
+var PROD_DOMAIN = "yescorise.herokuapp.com";
 
 // This checks which ROOT to use based on the domain.
 var ROOT = "";

@@ -2,7 +2,11 @@
 
 riseApp.controller('displayController',
 	function displayController($scope, displaysData){
-		$scope.displays = displaysData.items;
+		$scope.displays;
 		$scope.message = "Hello World";
+		
+		$scope.getAllDisplays = function(){
+			$scope.displays = displaysData.items;
+		}
 	}
 );
