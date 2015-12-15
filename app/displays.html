@@ -126,7 +126,7 @@
 		</div>
 		<div class="container" style="margin-top:50px;">
 			<div ng-controller="displayController">
-				<button ng-click="getAllDisplays"></button>
+				<button ng-click="getAllDisplays()">Refresh Displays</button>
 				<div ng-repeat="display in displays" id="display-{{display.id}}">						
 					<div class="row">
 						<div class="well span9">
