@@ -1,15 +1,15 @@
 /**
  * Created by rodrigopavezi on 11/14/14.
  */
-function listSchedule() {
+function listSchedule(companyId, count, cursor, search, sort, fields, callback) {
     console.log('listSchedule');
     // getting parameters values
-    var _companyId = document.getElementById('listSchedule_companyId').value;
-    var _count = document.getElementById('listSchedule_count').value;
-    var _cursor = document.getElementById('listSchedule_cursor').value;
-    var _search = document.getElementById('listSchedule_search').value;
-    var _sort = document.getElementById('listSchedule_sort').value;
-    var _fields = document.getElementById('listSchedule_fields').value;
+    var _companyId = companyId;//document.getElementById('listSchedule_companyId').value;
+    var _count = count;//document.getElementById('listSchedule_count').value;
+    var _cursor = cursor;//document.getElementById('listSchedule_cursor').value;
+    var _search = search;//document.getElementById('listSchedule_search').value;
+    var _sort = sort;//document.getElementById('listSchedule_sort').value;
+    var _fields = fields;//document.getElementById('listSchedule_fields').value;
 
     // create a javascript object which will be converted to Json
     var parameters = {};
@@ -37,7 +37,7 @@ function listSchedule() {
         var request = gapi.client.core.schedule.list(parameters);
 
         request.execute(function (jsonResp, rawResp) {
-            handlesResponse(jsonResp, rawResp, 'listScheduleResult');
+            callback(jsonResp, rawResp, 'listScheduleResult');
         });
     }, ROOT);
 }
