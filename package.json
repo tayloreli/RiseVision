@@ -1,0 +1,11 @@
+{
+  "name": "yescorise",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "author": "eli taylor",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3"
+  }
+}
