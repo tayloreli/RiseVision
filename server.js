@@ -3,7 +3,7 @@ var path = require('path');
 
 var app = express();
 
-var rootPath = path.normalize(__dirname + '/../');
+var rootPath = path.normalize(__dirname);
 
 app.use(express.static(rootPath + '/app'));
 
