@@ -15,6 +15,7 @@ riseApp.controller('displayController', ['$scope',
 				var resultJson = (jsonResp.result) ? jsonResp.result : jsonResp;
 				//var jsonData = JSON.stringify(resultJson, undefined, 2);
 				$scope.displays = resultJson.items;
+				$scope.$apply()
 				//output(syntaxHighlight(jsonData), type); // see output.js
 			});
 		}
