@@ -1,8 +1,19 @@
 'use strict'
 
-var riseApp = angular.module('riseApp', ['ui.router']);
+var riseApp = angular.module('riseApp', ['ui.router', 'cmGoogleApi']);
 
-riseApp.config(function($stateProvider, $urlRouterProvider){
+riseApp.config(function($stateProvider, $urlRouterProvider, googleClientProvider){
+	googleClientProvider
+		.loadGoogleAuth({
+			cookie_policy: 'single_host_origin',
+			hosted_domain: 'yescorise.herokuapp.com',
+			fetch_basic_profile: true
+		})
+		.setClientId('1040382116862-f6rh7l7vgm173ndh8d1lneui1g57k8mm.apps.googleusercontent.com')
+		.addScope('https://www.googleapis.com/auth/userinfo.email')
+		.addApi('core','v1','https://rvaserver2.appspot.com/_ah/api')
+		.addApi('oauth2', 'v2');
+	
 	$urlRouterProvider.otherwise('/home');
 	
 	$stateProvider

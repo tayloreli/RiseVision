@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="/css/app.css"/>
 		
 		<script src="javascript/auth.js"></script>		
-		<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+		<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>		
 	
 		<!-- ----------------- Endpoints ------------------------------------ -->
 		<script src="javascript/endpoints/company/core.company.add.js"></script>
@@ -52,7 +52,7 @@
 		<script src="javascript/endpoints/template/core.template.list.js"></script>
 		<script src="javascript/endpoints/timezone/core.timezone.list.js"></script>
 	
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			// ------------------------- Authentication & Loading ----------------------------
 			function init() {
 				console.log('init');
@@ -91,8 +91,8 @@
 				var jsonData = JSON.stringify(resultJson, undefined, 2);
 				output(syntaxHighlight(jsonData), type); // see output.js
 			}
-		</script>
-		<script src="https://apis.google.com/js/client.js?onload=init"></script>
+		</script>-->
+		<!--<script src="https://apis.google.com/js/client.js?onload=init"></script>-->
 	</head>
 	<body>
 		<div class="navbar navbar-inverse navbar-fixed-top">
@@ -113,13 +113,22 @@
 						<li><a ui-sref="presentations">Presentations</a></li>
 					</ul>
 					<div style="display: inline-block; float: right;">
-						<span id="signinText" class="navbar-text">Authorize requests using OAuth 2.0:</span>
-						<button id="signinButton" type="button" class="btn btn-primary btn-fixed-width navbar-btn">
+						<cm-google-sign-in click-handler='clickHandler' sign-in-listener='signInListener' user-listener='userListener'>
+							<div id="gSignInWrapper">
+								<span class="label">Sign in with:</span>
+								<div id="customBtn" class="customGPlusSignIn">
+								<span class="icon"></span>
+								<span class="buttonText">Google</span>
+								</div>
+							</div>
+							<div id="name"></div>
+						</cm-google-sign-in>
+						<!--<button id="signinButton" type="button" class="btn btn-primary btn-fixed-width navbar-btn">
 							Sign in <i class="fa fa-white fa-sign-in icon-right"></i>
 						</button>
 						<button id="signoutButton" type="button" class="btn btn-primary btn-fixed-width navbar-btn">
 							Sign out <i class="fa fa-white fa-sign-out icon-right"></i>
-						</button>
+						</button>-->
 					</div>
 				</div>
 			</div>
@@ -132,7 +141,7 @@
 			<div class="container">
 				<p class="text-muted">© 2015 Yesco Electronics</p>
 			</div>
-		</footer>
+		</footer>		
 		
 		<script src="lib/jquery-1.11.3.min.js"></script>
 		<script src="lib/underscore-1.8.3.min.js"></script>
@@ -142,6 +151,7 @@
 		<script src="js/app.js"></script>
 		<script src="js/controllers/displayController.js"></script>
 		<script src="js/controllers/scheduleController.js"></script>		
+		<script src="lib/angular-google-client.min.js"></script>
 		
 	</body>
 </html>
