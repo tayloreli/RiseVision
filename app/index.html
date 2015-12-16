@@ -52,14 +52,14 @@
 		<script src="javascript/endpoints/template/core.template.list.js"></script>
 		<script src="javascript/endpoints/timezone/core.timezone.list.js"></script>
 	
-		<!--<script type="text/javascript">
+		<script type="text/javascript">
 			// ------------------------- Authentication & Loading ----------------------------
 			function init() {
 				console.log('init');
 	
 				handleClientLoad(); // tries to authenticate the user during loading. See auth.js file
 	
-				document.getElementById('signinButton').onclick = function () {
+				/*document.getElementById('signinButton').onclick = function () {
 					console.log('login button clicked');
 					signin(); // more details in the auth.js file
 				};
@@ -69,7 +69,7 @@
 					signout(); // more details in the auth.js file
 				};
 	
-				hideSignoutButton();
+				hideSignoutButton();*/
 			}
 	
 			/**
@@ -91,7 +91,7 @@
 				var jsonData = JSON.stringify(resultJson, undefined, 2);
 				output(syntaxHighlight(jsonData), type); // see output.js
 			}
-		</script>-->
+		</script>
 		<!--<script src="https://apis.google.com/js/client.js?onload=init"></script>-->
 	</head>
 	<body>
@@ -113,7 +113,7 @@
 						<li><a ui-sref="presentations">Presentations</a></li>
 					</ul>
 					<div style="display: inline-block; float: right;">
-						<cm-google-sign-in click-handler='clickHandler' sign-in-listener='signInListener' user-listener='userListener'>
+						<cm-google-sign-in onclick="signin()" click-handler='clickHandler' sign-in-listener='signInListener' user-listener='userListener'>
 							<div id="gSignInWrapper">
 								<span class="label">Sign in with:</span>
 								<div id="customBtn" class="customGPlusSignIn">
@@ -151,7 +151,7 @@
 		<script src="js/app.js"></script>
 		<script src="js/controllers/displayController.js"></script>
 		<script src="js/controllers/scheduleController.js"></script>		
-		<script src="lib/angular-google-client.min.js"></script>
+		<script src="lib/angular-google-client.js"></script>
 		
 	</body>
 </html>
