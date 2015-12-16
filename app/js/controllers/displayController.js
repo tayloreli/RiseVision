@@ -2,7 +2,7 @@
 
 riseApp.controller('displayController',
 	function displayController($scope, cmApiService){
-		$scope.displays = displayList;
+		$scope.displays = [];
 		$scope.message = "Hello World";
 		
 		cmApiService.execute('core.display.list').then(

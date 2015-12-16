@@ -25,8 +25,8 @@ riseApp.config(function($stateProvider, $urlRouterProvider, googleClientProvider
 		.state('displays', {
 			url: '/displays',
 			templateUrl: 'partials/displays.html',
-			controller: 'displayController',
-			resolve: {
+			controller: 'displayController'
+			/*resolve: {
 				displayList: function($stateParams, $q){
 					var parameters = {};
 					
@@ -41,7 +41,7 @@ riseApp.config(function($stateProvider, $urlRouterProvider, googleClientProvider
 						return deferred.promise;
 					}, ROOT);
 				}
-			}
+			}*/
 		})
 		
 		.state('schedules', {
