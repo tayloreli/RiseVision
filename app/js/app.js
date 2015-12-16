@@ -17,7 +17,7 @@ riseApp.config(function($stateProvider, $urlRouterProvider){
 			controller: 'displayController',
 			resolve: {
 				displayList: function($stateParams, $q){
-					var parameters;
+					var parameters = {};
 					
 					var deferred = $q.defer();
 					
