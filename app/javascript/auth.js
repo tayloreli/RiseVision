@@ -64,7 +64,7 @@ function makeOAuth2Request() {
             //hideSigninButton();
             //showSignoutButton();
 
-            document.getElementById('signinText').innerText = 'Welcome ' + resp.name + ' [' + resp.email + ']';
+            //document.getElementById('signinText').innerText = 'Welcome ' + resp.name + ' [' + resp.email + ']';
             token = gapi.auth.getToken();
             console.log('Access Token is now ' + token.access_token + ' exp ' + token.expires_in);
         }
@@ -114,7 +114,7 @@ function signout() {
     //hideSignoutButton();
     //showSigninButton();
 
-    document.getElementById('signinText').innerText = 'Authorize requests using OAuth 2.0:';
+    //document.getElementById('signinText').innerText = 'Authorize requests using OAuth 2.0:';
 
 }
 
