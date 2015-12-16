@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" ng-app="riseApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Displays</title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/app.css"/>
+		
+		<script src="javascript/auth.js"></script>		
+		<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+	
+		<!-- ----------------- Endpoints ------------------------------------ -->
+		<script src="javascript/endpoints/company/core.company.add.js"></script>
+		<script src="javascript/endpoints/company/core.company.delete.js"></script>
+		<script src="javascript/endpoints/company/core.company.get.js"></script>
+		<script src="javascript/endpoints/company/core.company.list.js"></script>
+		<script src="javascript/endpoints/company/core.company.patch.js"></script>
+		<script src="javascript/endpoints/company/core.company.lookup.js"></script>
+		<script src="javascript/endpoints/company/core.company.move.js"></script>
+		<script src="javascript/endpoints/company/core.company.regenerateField.js"></script>
+	
+		<script src="javascript/endpoints/display/core.display.add.js"></script>
+		<script src="javascript/endpoints/display/core.display.delete.js"></script>
+		<script src="javascript/endpoints/display/core.display.get.js"></script>
+		<script src="javascript/endpoints/display/core.display.list.js"></script>
+		<script src="javascript/endpoints/display/core.display.patch.js"></script>
+		<script src="javascript/endpoints/display/core.display.reboot.js"></script>
+		<script src="javascript/endpoints/display/core.display.restart.js"></script>
+	
+		<script src="javascript/endpoints/schedule/core.schedule.add.js"></script>
+		<script src="javascript/endpoints/schedule/core.schedule.delete.js"></script>
+		<script src="javascript/endpoints/schedule/core.schedule.get.js"></script>
+		<script src="javascript/endpoints/schedule/core.schedule.list.js"></script>
+		<script src="javascript/endpoints/schedule/core.schedule.patch.js"></script>
+	
+		<script src="javascript/endpoints/user/core.user.add.js"></script>
+		<script src="javascript/endpoints/user/core.user.delete.js"></script>
+		<script src="javascript/endpoints/user/core.user.get.js"></script>
+		<script src="javascript/endpoints/user/core.user.list.js"></script>
+		<script src="javascript/endpoints/user/core.user.patch.js"></script>
+	
+		<script src="javascript/endpoints/presentation/core.presentation.add.js"></script>
+		<script src="javascript/endpoints/presentation/core.presentation.delete.js"></script>
+		<script src="javascript/endpoints/presentation/core.presentation.get.js"></script>
+		<script src="javascript/endpoints/presentation/core.presentation.list.js"></script>
+		<script src="javascript/endpoints/presentation/core.presentation.patch.js"></script>
+		<script src="javascript/endpoints/presentation/core.presentation.publish.js"></script>
+		<script src="javascript/endpoints/presentation/core.presentation.restore.js"></script>
+	
+		<script src="javascript/endpoints/systemmessage/core.systemmessage.list.js"></script>
+		<script src="javascript/endpoints/country/core.country.list.js"></script>
+		<script src="javascript/endpoints/template/core.template.list.js"></script>
+		<script src="javascript/endpoints/timezone/core.timezone.list.js"></script>
+	
+		<script type="text/javascript">
+			// ------------------------- Authentication & Loading ----------------------------
+			function init() {
+				console.log('init');
+	
+				handleClientLoad(); // tries to authenticate the user during loading. See auth.js file
+	
+				document.getElementById('signinButton').onclick = function () {
+					console.log('login button clicked');
+					signin(); // more details in the auth.js file
+				};
+	
+				document.getElementById('signoutButton').onclick = function () {
+					console.log('logout button clicked');
+					signout(); // more details in the auth.js file
+				};
+	
+				hideSignoutButton();
+			}
+	
+			/**
+			* This functions handles the response of the api call
+			* It checks if there is a valida result and
+			* sends the json to the output function
+			*
+			* @param jsonResp
+			* @param rawResp
+			* @param type
+			*/
+			function handlesResponse(jsonResp, rawResp, type) {
+				console.log(jsonResp);
+				// Because of the way the GAPI works the jsonResp object has got
+				// a duplication of the data which comes under result element
+				// So here we will output the result to avoid it if there is one.
+				// There is the error case so result element would not exist on the json responce
+				var resultJson = (jsonResp.result) ? jsonResp.result : jsonResp;
+				var jsonData = JSON.stringify(resultJson, undefined, 2);
+				output(syntaxHighlight(jsonData), type); // see output.js
+			}
+		</script>
+		<script src="https://apis.google.com/js/client.js?onload=init"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a ui-sref="home" class="navbar-brand">RiseVision Client Test</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a ui-sref="home">Home</a></li>
+						<li><a ui-sref="displays">Displays</a></li>
+						<li><a ui-sref="schedules">Schedules</a></li>
+						<li><a ui-sref="presentations">Presentations</a></li>
+					</ul>
+					<div style="display: inline-block; float: right;">
+						<span id="signinText" class="navbar-text">Authorize requests using OAuth 2.0:</span>
+						<button id="signinButton" type="button" class="btn btn-primary btn-fixed-width navbar-btn">
+							Sign in <i class="fa fa-white fa-sign-in icon-right"></i>
+						</button>
+						<button id="signoutButton" type="button" class="btn btn-primary btn-fixed-width navbar-btn">
+							Sign out <i class="fa fa-white fa-sign-out icon-right"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="margin-top:50px;">
+			<div ui-view></div>
+					
+		</div>
+		
+		<script src="lib/jquery-1.11.3.min.js"></script>
+		<script src="lib/underscore-1.8.3.min.js"></script>
+		<script src="lib/bootstrap.min.js"></script>
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular/angular-ui-router.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers/displayController.js"></script>
+		<script src="js/controllers/scheduleController.js"></script>
+		
+	</body>
+</html>
