@@ -61,8 +61,8 @@ function makeOAuth2Request() {
         if (!resp.code) {
             console.log(resp);
             // User is signed in, so hide the button
-            hideSigninButton();
-            showSignoutButton();
+            //hideSigninButton();
+            //showSignoutButton();
 
             document.getElementById('signinText').innerText = 'Welcome ' + resp.name + ' [' + resp.email + ']';
             token = gapi.auth.getToken();
@@ -111,8 +111,8 @@ function signout() {
     console.log("Signing Out");
     gapi.auth.signOut();
 
-    hideSignoutButton();
-    showSigninButton();
+    //hideSignoutButton();
+    //showSigninButton();
 
     document.getElementById('signinText').innerText = 'Authorize requests using OAuth 2.0:';
 
