@@ -25,7 +25,7 @@ riseApp.config(function($stateProvider, $urlRouterProvider){
 						var request = gapi.client.core.display.list(parameters);
 				
 						request.execute(function (jsonResp, rawResp) {
-							deferred.resolve(jsonResp, rawResp);
+							deferred.resolve(jsonResp.items);
 						});
 						return deferred.promise;
 					}, ROOT);
