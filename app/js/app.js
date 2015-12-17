@@ -26,6 +26,7 @@ riseApp.config(function($stateProvider, $urlRouterProvider){
 		
 		.state('presentations', {
 			url: '/presentations',
-			templateUrl: 'partials/presentations.html'
+			templateUrl: 'partials/presentations.html',
+			controller: 'presentationController'
 		})
 });
