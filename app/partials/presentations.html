@@ -1,6 +1,19 @@
-<div>Presentations</div>
+<div class="row">
+  	<div class="col-md-6 col-sm-6 col-xs-6">
+	  	<h1>Presentations</h1>
+  	</div>
+  	<div class="col-md-6 col-sm-6 col-xs-6">
+	  	<button ng-click="addPresentation()" class="btn btn-lg btn-primary pull-right addButton"> 
+			Add Presentation <i class="glyphicon glyphicon-plus"></i> 
+		</button>
+	</div>
+</div>
 <div>						
-	<div class="row">
-		
+	<div ng-repeat="presentation in presentations" id="presentation-{{presentation.id}}">						
+		<div class="row">
+			<div class="well span9">
+				<h4 class="well-title">{{presentation.name}}</h4>
+			</div>
+		</div>
 	</div>
 </div>

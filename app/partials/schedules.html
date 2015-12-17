@@ -1,4 +1,13 @@
-<div>Schedules</div>
+<div class="row">
+  	<div class="col-md-6 col-sm-6 col-xs-6">
+	  	<h1>Schedules</h1>
+  	</div>
+  	<div class="col-md-6 col-sm-6 col-xs-6">
+	  	<button ng-click="addSchedule()" class="btn btn-lg btn-primary pull-right addButton"> 
+			Add Schedule <i class="glyphicon glyphicon-plus"></i> 
+		</button>
+	</div>
+</div>
 <div ng-repeat="schedule in schedules" id="schedule-{{schedule.id}}">						
 	<div class="row">
 		<div class="well span9">
