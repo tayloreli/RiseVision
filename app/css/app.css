@@ -1,35 +1,10 @@
-#customBtn {
-  display: inline-block;
-  background: #4285f4;
-  color: white;
-  width: 130px;
-  border-radius: 5px;
-  white-space: nowrap;
-  margin-top: 5px;
+.auth-button{
+  margin-right: 10px;
 }
-#customBtn:hover {
-  cursor: pointer;
-}
-span.label {
-  font-weight: bold;
-}
-span.icon {
-  background: url('/img/g-normal.png') transparent 5px 50% no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-  width: 42px;
-  height: 42px;
-  border-right: #2265d4 1px solid;
-}
-span.buttonText {
-  display: inline-block;
-  vertical-align: middle;
-  padding-left: 12px;
-  padding-right: 12px;
-  font-size: 14px;
-  font-weight: bold;
-  /* Use the Roboto font that is loaded in the <head> */
-  /*font-family: 'Roboto', sans-serif;*/
+
+.addDisplayButton{
+  position: relative;
+  top: 15px;
 }
 
 .footer {

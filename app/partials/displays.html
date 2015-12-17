@@ -1,4 +1,13 @@
-<div>Displays</div>
+<div class="row equal">
+  	<div class="col-md-6 col-sm-6 col-xs-6">
+	  	<h1>Displays</h1>
+  	</div>
+  	<div class="col-md-6 col-sm-6 col-xs-6" style="height:100%;">
+	  	<button ng-click="addDisplay()" class="btn btn-lg btn-primary pull-right addDisplayButton"> 
+			Add Display <i class="glyphicon glyphicon-plus"></i> 
+		</button>
+	</div>
+</div>
 <div ng-repeat="display in displays" id="display-{{display.id}}">						
 	<div class="row">
 		<div class="well span9">
