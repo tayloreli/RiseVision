@@ -1,22 +1,29 @@
 'use strict'
 
 riseApp.controller('displayController',
-	function displayController($scope, cmApiService){
+	function displayController($scope){
 		$scope.displays = [];
 		$scope.message = "Hello World";
 		
-		cmApiService.execute('core.display.list').then(
-			function(resp){
-				console.log(resp);
-			},
-			function(reason){
-				console.log(reason);
-			}
-		);
-		listDisplay("", "", "", "", "", "", function (jsonResp, rawResp, type) {
+		$scope.getAllDisplays = function(callback){
+			var parameters = {};
+				
+			// loading and calling the api passing the parameter object
+			gapi.client.load(API_NAME, API_VER, function () {
+				var request = gapi.client.core.display.list(parameters);
+		
+				request.execute(function (jsonResp, rawResp) {
+					callback(jsonResp, rawResp, 'listDisplayResult');
+				});
+			}, ROOT);
+		}
+		
+		$scope.handleResponse = function(jsonResp, rawResp, type) {
 			var resultJson = (jsonResp.result) ? jsonResp.result : jsonResp;
-			$scope.displays = resultJson.items;
+			$scope.displays = resultJson.items ? resultJson.items : resultJson.message ;
 			$scope.$apply();
-		});
+		}
+		
+		$scope.getAllDisplays($scope.handleResponse);
 	}
 );

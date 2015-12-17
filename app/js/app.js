@@ -1,19 +1,9 @@
 'use strict'
 
-var riseApp = angular.module('riseApp', ['ui.router', 'cmGoogleApi']);
+var riseApp = angular.module('riseApp', ['ui.router']);
 
-riseApp.config(function($stateProvider, $urlRouterProvider, googleClientProvider){
-	googleClientProvider
-		.loadGoogleAuth({
-			cookie_policy: 'single_host_origin',
-			hosted_domain: 'yescorise.herokuapp.com',
-			fetch_basic_profile: true
-		})
-		.setClientId('1040382116862-f6rh7l7vgm173ndh8d1lneui1g57k8mm.apps.googleusercontent.com')
-		.addScope('https://www.googleapis.com/auth/userinfo.email')
-		.addApi('core','v1','https://rvaserver2.appspot.com/_ah/api')
-		.addApi('oauth2', 'v2');
-	
+riseApp.config(function($stateProvider, $urlRouterProvider){
+		
 	$urlRouterProvider.otherwise('/home');
 	
 	$stateProvider
@@ -26,22 +16,6 @@ riseApp.config(function($stateProvider, $urlRouterProvider, googleClientProvider
 			url: '/displays',
 			templateUrl: 'partials/displays.html',
 			controller: 'displayController'
-			/*resolve: {
-				displayList: function($stateParams, $q){
-					var parameters = {};
-					
-					var deferred = $q.defer();
-					
-					gapi.client.load(API_NAME, API_VER, function () {
-						var request = gapi.client.core.display.list(parameters);
-				
-						request.execute(function (jsonResp, rawResp) {
-							deferred.resolve(jsonResp.items);
-						});
-						return deferred.promise;
-					}, ROOT);
-				}
-			}*/
 		})
 		
 		.state('schedules', {
