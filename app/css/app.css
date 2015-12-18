@@ -1,3 +1,7 @@
+.navbar-brand { 
+  background-color: #eeeeee; 
+} 
+
 .auth-button{
   margin-right: 10px;
 }
